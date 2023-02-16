@@ -1,0 +1,6 @@
+data/
+wandb/
+.env/
+wav2vec2-pretrained-demo/
+need_segmenting.txt
+too_short.txt

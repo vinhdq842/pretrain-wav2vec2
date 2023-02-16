@@ -1,0 +1,23 @@
+#!/bin/bash
+accelerate launch run_wav2vec2_pretraining_no_trainer.py \
+	--dataset_name="/mnt/disk1/vinhdq/pretrain-wav2vec2/loading_script.py" \
+	--dataset_config_names="raw" \
+	--dataset_split_names="train" \
+    --dataset_split_dirs="/mnt/disk1/vinhdq/pretrain-wav2vec2/data/part_4" \
+	--model_name_or_path="patrickvonplaten/wav2vec2-base-v2" \
+	--output_dir="wav2vec2-pretrained-demo" \
+	--max_train_steps="100000" \
+	--num_warmup_steps="100" \
+	--gradient_accumulation_steps="8" \
+	--learning_rate="0.0005" \
+	--weight_decay="0.01" \
+	--max_duration_in_seconds="20.0" \
+	--min_duration_in_seconds="2.0" \
+	--logging_steps="1" \
+	--saving_steps="10000" \
+	--per_device_train_batch_size="2" \
+	--per_device_eval_batch_size="4" \
+	--adam_beta1="0.9" \
+	--adam_beta2="0.98" \
+	--adam_epsilon="1e-06" \
+	--gradient_checkpointing
